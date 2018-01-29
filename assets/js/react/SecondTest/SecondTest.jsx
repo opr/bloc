@@ -9,7 +9,7 @@ export default class SecondTest extends React.Component {
 
     render() {
         return (
-        <div>this is my sweet second test nice lol.</div>
+        <div>this is my sweet second test nice lol</div>
         );
     }
 }
