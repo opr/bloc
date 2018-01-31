@@ -8,7 +8,8 @@ module.exports = {
             'babel-polyfill',
             'react-hot-loader/patch',
             'webpack-hot-middleware/client',
-            './assets/js/react/index.jsx'
+            './assets/js/react/index.jsx',
+            './assets/js/modules/index.js'
         ]
     },
     plugins: [
@@ -17,8 +18,9 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin()
     ],
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: '[name].js'
+        path: path.resolve(__dirname, '/assets/js', 'dist'),
+        publicPath: '/assets/js/dist/',
+        filename: 'spooky.js'
     },
     module: {
         rules: [

@@ -43,6 +43,10 @@ gulp.task('browser-sync', function () {
     });
 });
 
+gulp.task('webpack:build', () => {
+    
+})
+
 gulp.task('sass:lint', () => {
     return gulp.src([
         '!assets/styles/scss/config/_reset.scss',
