@@ -1,0 +1,42 @@
+/*************************************************|
+| Welcome to Bloc. This is the main file we'll |
+| compile our stylesheet from. If you want to add |
+| any of your own sass files, you should add them |
+| at the bottom of this file.                     |
+*************************************************/
+@import '../../vendor/csstyle/csstyle';
+@import '../../vendor/font-awesome/css/font-awesome';
+@import '../../vendor/tiny-slider/tiny-slider';
+
+/*************************************************|
+| Helpers are classes that are useful but aren't  |
+| really considered to "style" the element.       |
+*************************************************/
+
+@import 'helpers/*';
+
+/*************************************************|
+| Gotta put the mixins now so we have cool        |
+| functions to use to save us time and money.     |
+*************************************************/
+
+@import 'mixins/*';
+
+/*************************************************|
+| We just reset everything so all styles below    |
+| will be on a fresh canvas, delicious!  Just     |
+| some configuration then we can actually do some |
+| styling!
+*************************************************/
+
+@import 'config/variables';
+@import 'config/reset';
+@import 'config/fonts';
+@import 'config/typography';
+
+/*************************************************|
+| Now we can actually get on with making the site |
+| styles                                          |
+*************************************************/
+
+@import 'components/*';

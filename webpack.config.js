@@ -7,11 +7,13 @@ module.exports = {
         'app': [
             'babel-polyfill',
             'react-hot-loader/patch',
+            'webpack-hot-middleware/client',
             './assets/js/react/index.jsx'
         ]
     },
     plugins: [
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ],
     output: {
         path: path.resolve(__dirname, './dist'),
