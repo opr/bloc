@@ -8,12 +8,8 @@ export default class TestInput extends React.Component {
     }
 
     render() {
-        if (process.env.NODE_ENV === 'production') {
-            var testVarBananas = 'BANANAS';
-            console.log(testVarBananas);
-        }
         return (
-            <div className="hello">test hello ok does this work?{process.env.NODE_ENV}
+            <div className="hello">
         <input type={'text'} value={this.state.value} onChange={e => this.setState({value: e.target.value})} /></div>
         );
     }

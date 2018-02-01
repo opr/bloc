@@ -14,6 +14,7 @@ let appUrl = 'localhost:8080',
     browsersync = require('browser-sync'),
     webpackConfig = require('./webpack.config.js'),
     webpackStatic = require('webpack'),
+    env = require('gulp-env'),
     bundler = webpackStatic(webpackConfig);
 
 // Watch Files For Changes
@@ -45,6 +46,11 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('webpack:build', () => {
+    env({
+        vars: {
+            BABEL_ENV: 'production'
+        }
+    });
     return gulp.src('./assets/js/react/ddd.jsx')
         .pipe(webpackStream(require('./webpack.production.config')))
         .pipe(gulp.dest('./assets/js/dist/'));
@@ -102,6 +108,7 @@ gulp.task('sass:compile', ['sass:lint'], () => {
 });
 
 gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'watch']);
+gulp.task('build', ['sass:lint', 'sass:compile', 'webpack:build']);
 
 function errorAlert(error) {
     console.log(error.toString());//Prints Error to Console
