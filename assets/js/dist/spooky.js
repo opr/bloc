@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e977043ca49089b7f419"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f053a4a092b4bf43bf5c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -820,8 +820,8 @@ executePageFunctions();
         return;
     }
 
-    reactHotLoader.register(pageFunctions, 'pageFunctions', 'C:/repositories/spooky/assets/js/modules/index.js');
-    reactHotLoader.register(executePageFunctions, 'executePageFunctions', 'C:/repositories/spooky/assets/js/modules/index.js');
+    reactHotLoader.register(pageFunctions, 'pageFunctions', 'C:/repositories/rhl/assets/js/modules/index.js');
+    reactHotLoader.register(executePageFunctions, 'executePageFunctions', 'C:/repositories/rhl/assets/js/modules/index.js');
     leaveModule(module);
 })();
 
@@ -877,8 +877,6 @@ var SecondTest = function (_React$Component) {
     _createClass(SecondTest, [{
         key: 'render',
         value: function render() {
-            var obj = null;
-            obj.id;
             return _react2.default.createElement(
                 'div',
                 null,
@@ -908,8 +906,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(SecondTest, 'SecondTest', 'C:/repositories/spooky/assets/js/react/SecondTest/SecondTest.jsx');
-    reactHotLoader.register(_default, 'default', 'C:/repositories/spooky/assets/js/react/SecondTest/SecondTest.jsx');
+    reactHotLoader.register(SecondTest, 'SecondTest', 'C:/repositories/rhl/assets/js/react/SecondTest/SecondTest.jsx');
+    reactHotLoader.register(_default, 'default', 'C:/repositories/rhl/assets/js/react/SecondTest/SecondTest.jsx');
     leaveModule(module);
 })();
 
@@ -922,7 +920,7 @@ exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+/* WEBPACK VAR INJECTION */(function(module, process) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -967,10 +965,15 @@ var TestInput = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            if (process.env.NODE_ENV === 'production') {
+                var testVarBananas = 'BANANAS';
+                console.log(testVarBananas);
+            }
             return _react2.default.createElement(
                 'div',
                 { className: 'hello' },
-                'test hello',
+                'test hello ok does this work?',
+                process.env.NODE_ENV,
                 _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: function onChange(e) {
                         return _this2.setState({ value: e.target.value });
                     } })
@@ -999,13 +1002,13 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(TestInput, 'TestInput', 'C:/repositories/spooky/assets/js/react/TestInput/TestInput.jsx');
-    reactHotLoader.register(_default, 'default', 'C:/repositories/spooky/assets/js/react/TestInput/TestInput.jsx');
+    reactHotLoader.register(TestInput, 'TestInput', 'C:/repositories/rhl/assets/js/react/TestInput/TestInput.jsx');
+    reactHotLoader.register(_default, 'default', 'C:/repositories/rhl/assets/js/react/TestInput/TestInput.jsx');
     leaveModule(module);
 })();
 
 ;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module), __webpack_require__("./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -1094,9 +1097,9 @@ try {
         return;
     }
 
-    reactHotLoader.register(getRenderFunc, 'getRenderFunc', 'C:/repositories/spooky/assets/js/react/index.jsx');
-    reactHotLoader.register(render, 'render', 'C:/repositories/spooky/assets/js/react/index.jsx');
-    reactHotLoader.register(apps, 'apps', 'C:/repositories/spooky/assets/js/react/index.jsx');
+    reactHotLoader.register(getRenderFunc, 'getRenderFunc', 'C:/repositories/rhl/assets/js/react/index.jsx');
+    reactHotLoader.register(render, 'render', 'C:/repositories/rhl/assets/js/react/index.jsx');
+    reactHotLoader.register(apps, 'apps', 'C:/repositories/rhl/assets/js/react/index.jsx');
     leaveModule(module);
 })();
 

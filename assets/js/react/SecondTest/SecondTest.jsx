@@ -8,8 +8,6 @@ export default class SecondTest extends React.Component {
     }
 
     render() {
-        let obj = null;
-        obj.id;
         return (
         <div>this is my  jo sweet</div>
         );
