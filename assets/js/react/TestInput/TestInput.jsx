@@ -9,7 +9,7 @@ export default class TestInput extends React.Component {
 
     render() {
         return (
-            <div className="hello">
+            <div className="test-input">
         <input type={'text'} value={this.state.value} onChange={e => this.setState({value: e.target.value})} /></div>
         );
     }

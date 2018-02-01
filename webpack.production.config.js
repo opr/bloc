@@ -28,7 +28,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './assets/js', 'dist'),
         publicPath: './assets/js/dist/',
-        filename: 'spooky.min.js'
+        filename: 'bloc.min.js'
     },
     module: {
         rules: [

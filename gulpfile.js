@@ -19,7 +19,8 @@ let appUrl = 'localhost:8080',
 
 // Watch Files For Changes
 gulp.task('watch', () => {
-    gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile'])
+    gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);
+    gulp.watch('assets/styles/js/**/*.js*', ['webpack:build']);
 });
 
 gulp.task('browser-sync', function () {

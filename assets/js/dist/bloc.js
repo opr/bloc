@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "66d40dbdc53aff19b683"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8a02c1c95a09d3611634"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -731,13 +731,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
 
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
 
 var pageFunctions = {
     common: {
@@ -809,24 +803,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 executePageFunctions();
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(pageFunctions, 'pageFunctions', 'C:/repositories/rhl/assets/js/modules/index.js');
-    reactHotLoader.register(executePageFunctions, 'executePageFunctions', 'C:/repositories/rhl/assets/js/modules/index.js');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -834,7 +810,7 @@ executePageFunctions();
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -849,12 +825,6 @@ var _react = __webpack_require__("./node_modules/react/index.js");
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -879,36 +849,12 @@ var SecondTest = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement('div', null);
         }
-    }, {
-        key: '__reactstandin__regenerateByEval',
-        value: function __reactstandin__regenerateByEval(key, code) {
-            this[key] = eval(code);
-        }
     }]);
 
     return SecondTest;
 }(_react2.default.Component);
 
-var _default = SecondTest;
-exports.default = _default;
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(SecondTest, 'SecondTest', 'C:/repositories/rhl/assets/js/react/SecondTest/SecondTest.jsx');
-    reactHotLoader.register(_default, 'default', 'C:/repositories/rhl/assets/js/react/SecondTest/SecondTest.jsx');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
+exports.default = SecondTest;
 
 /***/ }),
 
@@ -916,7 +862,7 @@ exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -931,12 +877,6 @@ var _react = __webpack_require__("./node_modules/react/index.js");
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -963,42 +903,18 @@ var TestInput = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'hello' },
+                { className: 'test-input' },
                 _react2.default.createElement('input', { type: 'text', value: this.state.value, onChange: function onChange(e) {
                         return _this2.setState({ value: e.target.value });
                     } })
             );
-        }
-    }, {
-        key: '__reactstandin__regenerateByEval',
-        value: function __reactstandin__regenerateByEval(key, code) {
-            this[key] = eval(code);
         }
     }]);
 
     return TestInput;
 }(_react2.default.Component);
 
-var _default = TestInput;
-exports.default = _default;
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(TestInput, 'TestInput', 'C:/repositories/rhl/assets/js/react/TestInput/TestInput.jsx');
-    reactHotLoader.register(_default, 'default', 'C:/repositories/rhl/assets/js/react/TestInput/TestInput.jsx');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
+exports.default = TestInput;
 
 /***/ }),
 
@@ -1006,7 +922,7 @@ exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+
 
 var _react = __webpack_require__("./node_modules/react/index.js");
 
@@ -1027,12 +943,6 @@ var _SecondTest = __webpack_require__("./assets/js/react/SecondTest/SecondTest.j
 var _SecondTest2 = _interopRequireDefault(_SecondTest);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(function () {
-    var enterModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
 
 var getRenderFunc = function getRenderFunc(app) {
     return function () {
@@ -1075,26 +985,6 @@ try {
         }
     }
 }
-
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__("./node_modules/react-hot-loader/patch.js").default;
-
-    var leaveModule = __webpack_require__("./node_modules/react-hot-loader/patch.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(getRenderFunc, 'getRenderFunc', 'C:/repositories/rhl/assets/js/react/index.jsx');
-    reactHotLoader.register(render, 'render', 'C:/repositories/rhl/assets/js/react/index.jsx');
-    reactHotLoader.register(apps, 'apps', 'C:/repositories/rhl/assets/js/react/index.jsx');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("./node_modules/webpack/buildin/module.js")(module)))
 
 /***/ }),
 
@@ -12720,4 +12610,4 @@ module.exports = __webpack_require__("./assets/js/modules/index.js");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=spooky.js.map
+//# sourceMappingURL=bloc.js.map

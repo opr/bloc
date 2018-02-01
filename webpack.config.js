@@ -22,12 +22,12 @@ module.exports = {
                 NODE_ENV: JSON.stringify("production")
             }
         }),
-        new WriteFilePlugin({ force: true, test: /^spooky\.js$/ })
+        new WriteFilePlugin({ force: true, test: /^bloc\.js$/ })
     ],
     output: {
         path: path.resolve(__dirname, './assets/js', 'dist'),
         publicPath: './assets/js/dist/',
-        filename: 'spooky.js'
+        filename: 'bloc.js'
     },
     module: {
         rules: [
