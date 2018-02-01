@@ -4,6 +4,7 @@ let appUrl = 'localhost:8080',
     plumber = require('gulp-plumber'),
     cssmin = require('gulp-cssmin'),
     sass = require('gulp-sass'),
+    webpackStream = require('webpack-stream'),
     autoprefixer = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
     cssimport = require('gulp-cssimport'),
@@ -44,8 +45,10 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('webpack:build', () => {
-    
-})
+    return gulp.src('./assets/js/react/ddd.jsx')
+        .pipe(webpackStream(require('./webpack.production.config')))
+        .pipe(gulp.dest('./assets/js/dist/'));
+});
 
 gulp.task('sass:lint', () => {
     return gulp.src([
@@ -98,7 +101,7 @@ gulp.task('sass:compile', ['sass:lint'], () => {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'watch']);
+gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'watch']);
 
 function errorAlert(error) {
     console.log(error.toString());//Prints Error to Console

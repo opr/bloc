@@ -10,6 +10,10 @@ let pageFunctions = {
     }
 };
 
+if(false) {
+    let oprRhlTest = 'oprRhlTest';
+}
+
 
 function executePageFunctions(finalize = false) {
     let body = document.body;

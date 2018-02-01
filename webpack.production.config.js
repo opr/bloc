@@ -3,26 +3,34 @@ const webpack = require('webpack'),
     WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
     entry: {
         'app': [
             'babel-polyfill',
-            'react-hot-loader/patch',
-            'webpack-hot-middleware/client',
             './assets/js/react/index.jsx',
             './assets/js/modules/index.js'
         ]
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new WriteFilePlugin({ force: true, test: /^spooky\.js$/ })
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: false,
+            minimize: true
+        })
     ],
     output: {
         path: path.resolve(__dirname, './assets/js', 'dist'),
         publicPath: './assets/js/dist/',
-        filename: 'spooky.js'
+        filename: 'spooky.min.js'
     },
     module: {
         rules: [
