@@ -4,7 +4,7 @@ Type `yarn install` on the command line and let it install. If you're not part o
 
 If you want to become part of the yarn master race visit [https://yarnpkg.com](https://yarnpkg.com) to ascend. 
 
-##Usage
+# Usage
 
 - Edit your gulpfile, set `appUrl` to be the URL of the site you're working on. This is what browsersync will proxy to.
 If you're just using the `index.html` file that comes with this, then leave it as it is.
@@ -13,5 +13,5 @@ If you're just using the `index.html` file that comes with this, then leave it a
 
 - Connect to `http://localhost:3000` and marvel at the react hot module reloading and the css injection.
 
-## Docs
+# Docs
 I promise that I'll write these later
