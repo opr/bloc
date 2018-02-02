@@ -35,6 +35,7 @@
     "gulp-sass-glob": "^1.0.8",
     "gulp-sass-lint": "^1.3.4",
     "gulp-sort": "^2.0.0",
+    "gulp-webserver": "^0.9.1",
     "http-server": "^0.11.1",
     "immutable": "^3.8.2",
     "mocha": "^5.0.0",

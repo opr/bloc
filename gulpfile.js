@@ -15,12 +15,20 @@ let appUrl = 'localhost:8080',
     webpackConfig = require('./webpack.config.js'),
     webpackStatic = require('webpack'),
     env = require('gulp-env'),
+    webserver = require('gulp-webserver'),
     bundler = webpackStatic(webpackConfig);
 
 // Watch Files For Changes
 gulp.task('watch', () => {
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);
     gulp.watch('assets/styles/js/**/*.js*', ['webpack:build']);
+});
+
+gulp.task('webserver', function () {
+    gulp.src('.')
+        .pipe(webserver({
+            port: 8088,
+        }));
 });
 
 gulp.task('browser-sync', function () {
@@ -108,7 +116,7 @@ gulp.task('sass:compile', ['sass:lint'], () => {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'watch']);
+gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'webserver', 'watch']);
 gulp.task('build', ['sass:lint', 'sass:compile', 'webpack:build']);
 
 function errorAlert(error) {
