@@ -17,16 +17,10 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
-        }),
-        new WriteFilePlugin({ force: true, test: /^bloc\.js$/ })
+        new WriteFilePlugin({ test: /^bloc.js$/, force: true})
     ],
     output: {
         path: path.resolve(__dirname, './assets/js', 'dist'),
-        publicPath: './assets/js/dist/',
         filename: 'bloc.js'
     },
     module: {
