@@ -98,6 +98,13 @@ gulp.task('sass:lint', () => {
         .pipe(sassLint.failOnError());
 });
 
+gulp.task('vendor', () => {
+    return gulp.src([])
+        .pipe(concat('vendor.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./assets/js/dist/'))
+});
+
 gulp.task('sass:compile', ['sass:lint'], () => {
 
     return gulp.src('assets/styles/scss/**/*.scss')
@@ -116,8 +123,8 @@ gulp.task('sass:compile', ['sass:lint'], () => {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'webserver', 'watch']);
-gulp.task('build', ['sass:lint', 'sass:compile', 'webpack:build']);
+gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'vendor', 'webserver', 'watch']);
+gulp.task('build', ['sass:lint', 'sass:compile', 'webpack:build', 'vendor']);
 
 function errorAlert(error) {
     console.log(error.toString());//Prints Error to Console
