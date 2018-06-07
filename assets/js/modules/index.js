@@ -21,6 +21,7 @@ function executePageFunctions(finalize = false) {
     if (finalize) {
         pageFunctions.common.finalize();
     }
+
     else {
         pageFunctions.common.init();
     }

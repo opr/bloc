@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import {AppContainer} from 'react-hot-loader'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
 
-import TestInput from './TestInput/TestInput'
+import TestInput from './TestInput/TestInput';
 import SecondTest from './SecondTest/SecondTest';
 
 const getRenderFunc = app => {
   return () => {
       render(app.component, app.element, app.name);
-  }
+  };
 };
 
 const render = (Component, element, name) => {
@@ -17,7 +17,7 @@ const render = (Component, element, name) => {
             {Component}
         </AppContainer>,
         element
-    )
+    );
 };
 
 let apps = [

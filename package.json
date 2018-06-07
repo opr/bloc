@@ -23,6 +23,8 @@
     "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
     "chai-immutable": "^1.6.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-react": "^7.9.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-cli": "^2.0.1",

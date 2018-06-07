@@ -17,14 +17,22 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new WriteFilePlugin({ test: /^bloc.js$/, force: true})
+    new WriteFilePlugin({test: /^bloc.js$/, force: true})
   ],
   output: {
     path: path.resolve(__dirname, './assets/js', 'dist'),
-    filename: 'bloc.js'
+    filename: 'bloc.min.js'
   },
   module: {
     rules: [
+
+      {
+        enforce: "pre",
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,

@@ -63,7 +63,7 @@ gulp.task('webpack:build', () => {
         }
     });
     return gulp.src('./assets/js/react/ddd.jsx')
-        .pipe(webpackStream(require('./webpack.config')))
+        .pipe(webpackStream(require('./webpack.production.config')))
         .pipe(gulp.dest('./assets/js/dist/'));
 });
 
@@ -125,7 +125,7 @@ gulp.task('sass:compile', ['sass:lint'], () => {
         .pipe(gulp.dest('assets/styles/css'));
 });
 
-gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'webpack:build', 'vendor', 'webserver', 'watch']);
+gulp.task('default', ['sass:lint', 'sass:compile', 'browser-sync', 'vendor', 'webserver', 'watch']);
 gulp.task('build', ['sass:lint', 'sass:compile', 'webpack:build', 'vendor']);
 
 function errorAlert(error) {
