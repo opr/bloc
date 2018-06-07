@@ -61,7 +61,7 @@ gulp.task('webpack:build', () => {
         }
     });
     return gulp.src('./assets/js/react/ddd.jsx')
-        .pipe(webpackStream(require('./webpack.production.config')))
+        .pipe(webpackStream(require('./webpack.config')))
         .pipe(gulp.dest('./assets/js/dist/'));
 });
 
