@@ -23,7 +23,8 @@ let appUrl = 'localhost:8088',
 // Watch Files For Changes
 gulp.task('watch', () => {
     gulp.watch('assets/styles/scss/**/*.scss', ['sass:lint', 'sass:compile']);
-    gulp.watch('assets/js/**/*.js*', ['webpack:build']);
+    gulp.watch(['assets/js/**/*.js*', '!assets/js/**/bloc.js',
+      '!assets/js/**/bloc.min.js', '!assets/js/**/bloc.js.map'], ['webpack:build']);
 });
 
 gulp.task('webserver', function () {
