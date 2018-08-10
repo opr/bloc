@@ -1,22 +1,22 @@
 {
-  "name": "react-hot-loader-minimal-boilerplate",
+  "name": "Bloc",
   "version": "1.0.0",
-  "description": "",
+  "description": "A system for rapid prototyping and component-based front-end development",
   "main": "index.js",
   "scripts": {
     "run": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate.git"
+    "url": "git+https://github.com/opr/bloc.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate/issues"
+    "url": "https://github.com/opr/bloc/issues"
   },
-  "homepage": "https://github.com/wkwiatek/react-hot-loader-minimal-boilerplate#readme",
+  "homepage": "https://github.com/opr/bloc",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -46,6 +46,8 @@
     "npm": "^5.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "sass-lint": "^1.12.1",
     "watch": "^1.0.2",
     "webpack-dev-middleware": "^2.0.4",
