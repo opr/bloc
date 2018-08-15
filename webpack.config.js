@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'source-map',
   entry: {
     'app': [
-      'babel-polyfill',
+      '@babel/polyfill',
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
       './assets/js/react/index.jsx',
@@ -21,6 +21,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, './assets/js', 'dist'),
+    publicPath: '/assets/js/dist',
     filename: 'bloc.min.js'
   },
   module: {

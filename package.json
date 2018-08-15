@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/opr/bloc",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.4",
+    "@babel/polyfill": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/preset-react": "^7.0.0-rc.1",
+    "@babel/register": "^7.0.0-rc.1",
+    "babel-plugin-istanbul": "^5.0.1",
+    "babel-preset-latest": "7.0.0-alpha.7",
     "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
     "chai-immutable": "^1.6.0",
@@ -56,12 +63,7 @@
     "write-file-webpack-plugin": "^4.2.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^7.0.0-beta.3",
     "react-hot-loader": "^4.0.0-beta.18",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"

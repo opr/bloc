@@ -5,7 +5,7 @@ const webpack = require('webpack'),
 module.exports = {
   entry: {
     'app': [
-      'babel-polyfill',
+      '@babel/polyfill',
       './assets/js/react/index.jsx',
       './assets/js/modules/index.js'
     ]
