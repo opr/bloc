@@ -2347,7 +2347,7 @@
 | of them, this causes the container to have the  |
 | proper height.
 *************************************************/
-.cf:after, .container:after {
+.cf:after, .container:after, .user-profile:after {
   clear: both;
   content: '';
   display: block;
@@ -2556,7 +2556,7 @@ video {
 html {
   font-family: "Univers-Light", sans-serif;
   font-size: 14px;
-  color: #2f2f2f; }
+  color: rgba(0, 0, 0, 0.9); }
 
 h1,
 h2,
@@ -2564,7 +2564,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2f2f2f;
+  color: rgba(0, 0, 0, 0.9);
   font-family: "TiemposHeadlineLight", sans-serif;
   font-weight: normal; }
 
@@ -2632,6 +2632,26 @@ h6 {
 | Now we can actually get on with making the site |
 | styles                                          |
 *************************************************/
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  background: #b70000;
+  color: #fff;
+  border: 0; }
+  .button__icon {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-left: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+    .button__icon.\--rocket {
+      background-image: url("/assets/img/icons/rocket-ship.png"); }
+    .button__icon.\--spanner {
+      background-image: url("/assets/img/icons/spanner.png"); }
+
 /*************************************************|
 | Container                                       |
 *************************************************/
@@ -2660,7 +2680,7 @@ h6 {
   left: -1000px; }
 
 .input {
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -2670,3 +2690,44 @@ h6 {
   font-family: "TiemposHeadlineLight", sans-serif; }
   .input.\--with-button {
     padding: 10px 60px 10px 10px; }
+
+.user-profile {
+  padding: 30px;
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 600px;
+  position: relative; }
+  .user-profile__edit-button {
+    position: absolute;
+    padding: 5px 10px;
+    background: #560000;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    top: 0;
+    right: 0; }
+  .user-profile__name {
+    font-family: "Univers", sans-serif;
+    font-size: 2rem; }
+  .user-profile__image-container {
+    width: 25.33%;
+    margin-right: 3%;
+    display: inline-block;
+    float: left; }
+  .user-profile__content-container {
+    width: 71%;
+    display: inline-block;
+    float: left; }
+  .user-profile__job-title {
+    margin-bottom: 10px; }
+  .user-profile__image {
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    background: url("/assets/img/profile.png") no-repeat center;
+    background-size: cover;
+    border-radius: 60px;
+    margin-right: 20px; }

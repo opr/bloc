@@ -1,0 +1,53 @@
+@include component(user-profile) {
+  @extend .cf;
+  padding: 30px;
+  box-shadow: 0 0 7px $grey-1;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 600px;
+  position: relative;
+
+  @include part(edit-button) {
+    position: absolute;
+    padding: 5px 10px;
+    background: $palette_a;
+    border: 0;
+    cursor: pointer;
+    color: $white;
+    top: 0;
+    right: 0;
+  }
+
+  @include part(name) {
+    font-family: $boldfont;
+    font-size: 2rem;
+  }
+
+  @include part(image-container) {
+    width: 25.33%;
+    margin-right: 3%;
+    display: inline-block;
+    float: left;
+  }
+
+  @include part(content-container) {
+    width: 71%;
+    display: inline-block;
+    float: left;
+  }
+
+  @include part(job-title) {
+    margin-bottom: 10px;
+  }
+
+  @include part(image) {
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    background: url('/assets/img/profile.png') no-repeat center;
+    background-size: cover;
+    border-radius: 60px;
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,26 @@
+@include component(button) {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  background: $palette_b;
+  color: $white;
+  border: 0;
+
+  @include part(icon) {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    margin-left: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include option(rocket) {
+      background-image: url('/assets/img/icons/rocket-ship.png');
+    }
+
+    @include option(spanner) {
+      background-image: url('/assets/img/icons/spanner.png');
+    }
+  }
+}

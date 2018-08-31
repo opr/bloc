@@ -64,6 +64,9 @@ gulp.task('webpack:build', () => {
     }
   });
   return gulp.src('./assets/js/react/ddd.jsx')
+    .pipe(plumber({
+      errorHandler: errorAlert
+    }))
     .pipe(webpackStream(require('./webpack.config')))
     .pipe(gulp.dest('./assets/js/dist/'));
 });
@@ -75,6 +78,9 @@ gulp.task('webpack:build:production', () => {
     }
   });
   return gulp.src('./assets/js/react/ddd.jsx')
+    .pipe(plumber({
+      errorHandler: errorAlert
+    }))
     .pipe(webpackStream(require('./webpack.production.config')))
     .pipe(gulp.dest('./assets/js/dist/'));
 });

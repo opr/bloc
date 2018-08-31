@@ -12,22 +12,26 @@ $desktop                           : 1260px;
 *************************************************/
 
 $white                         	  : #fff;
-$black							  : #000;
-$grey                             : #ccc;
-$dark-grey                        : #2f2f2f;
-$darker-grey                      : #1d1d1d;
-$light-grey                       : #404040;
-$lighter-grey                     : #464646;
-$even-lighter-grey                : #6b6b6b;
-$superlight-grey                  : #292929;
-$offwhite                         : #dcdcdc;
+$black					            		  : #000;
+$grey-0                           : rgba($black, .05);
+$grey-1                           : rgba($black, .1);
+$grey-2                           : rgba($black, .2);
+$grey-3                           : rgba($black, .3);
+$grey-4                           : rgba($black, .4);
+$grey-5                           : rgba($black, .5);
+$grey-6                           : rgba($black, .6);
+$grey-7                           : rgba($black, .7);
+$grey-8                           : rgba($black, .8);
+$grey-9                           : rgba($black, .9);
+
 $palette_a                        : #560000;
 $palette_b                        : #b70000;
 $palette_c                        : #b70000;
 $palette_d                        : #282828;
 $palette_e                        : #08AF22;
 $gradient-palette-a-b             : linear-gradient(312deg, $palette_a, $palette_b);
-$gradient-grey                    : linear-gradient(124deg, $dark-grey, $black);
+$gradient-grey                    : linear-gradient(124deg, $grey-1, $black);
+
 
 /*************************************************|
 | Font Settings - sizes in px                     |
@@ -45,8 +49,8 @@ $lineheight                        : 20;
 $headersizes                       : 3, 2.25, 1.5, 1.313, 1.125, 1;
 $headermargins                     : 0.563, 0.625, 1.313, 1.313, 1.313, 0.75;
 
-$basefontcolor                     : $dark-grey;
-$headingcolor                      : $dark-grey;
+$basefontcolor                     : $grey-9;
+$headingcolor                      : $grey-9;
 
 /*************************************************|
 | Container Variables                             |
