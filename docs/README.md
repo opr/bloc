@@ -301,7 +301,7 @@ and contains _only_ the styling for this component and nothing else.
 ``` 
 
 We now need to loop through all of the potential react apps to add to a page, see if their anchor is present and if it is:
-mount the component there. We do this in `./assets/js/react/index.jsx`. We add the mount point as a member of an object
+mount the component there. We do this in `./assets/js/src/react/index.jsx`. We add the mount point as a member of an object
 called `elements` and then check if the element exists. If it does we should add it to an array of apps, along with the
 mount point and the actual React component.
 
