@@ -4,7 +4,8 @@
   "description": "A system for rapid prototyping and component-based front-end development",
   "main": "index.js",
   "scripts": {
-    "run": "webpack"
+    "run": "webpack",
+    "test": "nyc mocha --require @babel/register --require ./assets/js/test/test_helper.js --ui bdd ./assets/js/test"
   },
   "repository": {
     "type": "git",
@@ -20,11 +21,11 @@
   "dependencies": {
     "@babel/cli": "^7.0.0-rc.1",
     "@babel/core": "^7.0.0-rc.1",
-    "babel-loader": "^8.0.0-beta.4",
     "@babel/polyfill": "^7.0.0-rc.1",
     "@babel/preset-env": "^7.0.0-rc.1",
     "@babel/preset-react": "^7.0.0-rc.1",
     "@babel/register": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.4",
     "babel-plugin-istanbul": "^5.0.1",
     "babel-preset-latest": "7.0.0-alpha.7",
     "browser-sync": "^2.23.6",
@@ -50,6 +51,7 @@
     "http-server": "^0.11.1",
     "immutable": "^3.8.2",
     "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
