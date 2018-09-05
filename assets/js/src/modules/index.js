@@ -1,7 +1,10 @@
+import addNumber from './addNumber';
+
 let pageFunctions = {
     common: {
         init: function () {
             console.log('init');
+            addNumber(1,2);
         },
 
         finalize: function () {
@@ -9,11 +12,6 @@ let pageFunctions = {
         }
     }
 };
-
-if(false) {
-    let oprRhlTest = 'oprRhlTest';
-}
-
 
 function executePageFunctions(finalize = false) {
     let body = document.body;

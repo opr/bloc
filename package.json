@@ -3,9 +3,34 @@
   "version": "1.0.0",
   "description": "A system for rapid prototyping and component-based front-end development",
   "main": "index.js",
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "extension": [
+      ".jsx"
+    ],
+    "exclude": [
+      "assets/vendor/**",
+      "assets/js/dist/**",
+      "assets/js/test/**",
+      "./node_modules"
+    ],
+    "include": [
+      "assets/js/src/react/**",
+      "assets/js/src/modules/**"
+    ],
+    "reporter": [
+      "text",
+      "cobertura",
+      "lcov"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
   "scripts": {
     "run": "webpack",
-    "test": "nyc mocha --require @babel/register --require ./assets/js/test/test_helper.js --ui bdd ./assets/js/test"
+    "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc --all mocha --recursive ./assets/js/test"
   },
   "repository": {
     "type": "git",
@@ -31,6 +56,9 @@
     "browser-sync": "^2.23.6",
     "chai": "^4.1.2",
     "chai-immutable": "^1.6.0",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.4.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.9.1",
     "gulp": "^3.9.1",
@@ -50,6 +78,7 @@
     "gulp-webserver": "^0.9.1",
     "http-server": "^0.11.1",
     "immutable": "^3.8.2",
+    "jsdom": "^12.0.0",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "react": "^16.2.0",
