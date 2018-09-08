@@ -8,7 +8,27 @@
     }
   },
   "rules": {
-    "semi": 1
+    "array-callback-return": 1,
+    "func-style": [2, "expression", { "allowArrowFunctions": true }],
+    "no-const-assign": 2,
+    "no-eval": 2,
+    "no-loop-func": 2,
+    "no-new-object": 2,
+    "no-param-reassign": [2, { "props": true}],
+    "no-useless-escape": 1,
+    "no-var": 2,
+    "object-shorthand": 2,
+    "prefer-const": 2,
+    "prefer-template": 2,
+    "quotes": [2, "single"],
+    "quote-props": [2, "as-needed"],
+    "semi": 1,
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never"
+    }],
+    "space-before-blocks": [2, "always"],
+    "template-curly-spacing": [2, "never"]
   },
   "plugins": [
     "react"

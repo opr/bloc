@@ -1,20 +1,20 @@
 import addNumber from './addNumber';
 
-let pageFunctions = {
+const pageFunctions = {
     common: {
-        init: function () {
+        init() {
             console.log('init');
             addNumber(1,2);
         },
 
-        finalize: function () {
+        finalize() {
             console.log('finalise');
         }
     }
 };
 
-function executePageFunctions(finalize = false) {
-    let body = document.body;
+const executePageFunctions = (finalize = false) => {
+    const body = document.body;
 
     if (finalize) {
         pageFunctions.common.finalize();
@@ -23,26 +23,26 @@ function executePageFunctions(finalize = false) {
     else {
         pageFunctions.common.init();
     }
-    for (let c of body.classList) {
-        c = c.replace(/-/g, '_');
+    for (let bodyClass of body.classList) {
+        bodyClass = bodyClass.replace(/-/g, '_');
         if (finalize) {
-            if (typeof pageFunctions[c] !== 'undefined') {
-                if (typeof pageFunctions[c].finalize !== 'undefined') {
-                    pageFunctions[c].finalize();
+            if (typeof pageFunctions[bodyClass] !== 'undefined') {
+                if (typeof pageFunctions[bodyClass].finalize !== 'undefined') {
+                    pageFunctions[bodyClass].finalize();
                 }
             }
         }
         else {
-            if (typeof pageFunctions[c] !== 'undefined') {
-                if (typeof pageFunctions[c].init !== 'undefined') {
-                    pageFunctions[c].init();
+            if (typeof pageFunctions[bodyClass] !== 'undefined') {
+                if (typeof pageFunctions[bodyClass].init !== 'undefined') {
+                    pageFunctions[bodyClass].init();
                 }
             }
         }
     }
-}
+};
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
     executePageFunctions(true);
 });
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-
-import UserProfile from "./UserProfile/UserProfile";
+import UserProfile from './UserProfile/UserProfile';
 
 const getRenderFunc = app => {
   return () => {
@@ -23,7 +22,7 @@ const elements = {
   userProfile: document.getElementById('user-profile__react-anchor')
 };
 
-let apps = [];
+const apps = [];
 
 if (elements.userProfile) {
   apps.push({
@@ -35,7 +34,7 @@ if (elements.userProfile) {
 }
 
 
-for (let a of apps) {
-  a.element ? getRenderFunc(a)() : null;
-  module.hot ? module.hot.accept(getRenderFunc(a)()) : null;
+for (const app of apps) {
+  app.element ? getRenderFunc(app)() : null;
+  module.hot ? module.hot.accept(getRenderFunc(app)()) : null;
 }
