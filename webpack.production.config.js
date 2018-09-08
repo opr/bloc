@@ -6,8 +6,8 @@ module.exports = {
   entry: {
     'app': [
       '@babel/polyfill',
-      './assets/js/react/index.jsx',
-      './assets/js/modules/index.js'
+      './assets/js/src/react/index.jsx',
+      './assets/js/src/modules/index.js'
     ]
   },
   plugins: [
