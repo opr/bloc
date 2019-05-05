@@ -1,16 +1,14 @@
 import {put, takeEvery, all} from 'redux-saga/effects';
-import {showModal, setModal} from '../ModalContainer/actions';
 import {constants} from '../constants/constants';
 
-const setAndShowModal = function* () {
-  yield takeEvery('SET_AND_SHOW_MODAL', function* (action) {
-    yield put(setModal(action.payload.name));
-    yield put(showModal(true));
+const sampleSaga = function* () {
+  yield takeEvery('EXAMPLE_ACTION_NAME', function* (action) {
+
   });
 };
 
-export const modalSaga = function* () {
+export const exampleSaga = function* () {
   yield all([
-    setAndShowModal()
+    sampleSaga()
   ]);
 };

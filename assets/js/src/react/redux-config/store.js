@@ -4,23 +4,16 @@ import {Map} from 'immutable';
 import createSagaMiddleware from 'redux-saga';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-import {modalSaga} from '../sagas/modals';
-import {searchAndHighlightSaga} from '../sagas/searchAndHighlight';
-import {saveSnippetSaga} from '../sagas/saveSnippet';
-import {saveSearchSaga} from '../sagas/saveSearch';
-import {savedItemsSaga} from '../sagas/savedItems';
-import {databaseTreeSaga} from '../sagas/databaseTrees';
-import {criteriaSaga} from '../sagas/criteria';
-import {searchAuditTrailSaga} from '../sagas/searchAuditTrail';
+import {exampleSaga} from '../sagas/exampleSaga';
 
 const makeStore = () => {
-  const sagas = [criteriaSaga, modalSaga,  databaseTreeSaga, searchAndHighlightSaga, searchAuditTrailSaga, saveSnippetSaga, saveSearchSaga, savedItemsSaga];
+  const sagas = [exampleSaga];
   const INITIAL_STATE = Map({});
   const sagaMiddleware = createSagaMiddleware();
   const middleware = [sagaMiddleware];
-  if(process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     const composeEnhancers = composeWithDevTools({
-      name: 'SLaM CRIS Redux store'
+      name: 'Bloc - Redux store'
     });
     const store = createStore(rootReducer, INITIAL_STATE, composeEnhancers(
       applyMiddleware(...middleware)
