@@ -11,7 +11,7 @@ export default class UserProfile extends React.Component {
     return (
       <section className={'user-profile'}>
         <div className={'user-profile__image-container'}>
-          <div className={'user-profile__image'}></div>
+          <div className={'user-profile__image'} />
         </div>
 
         <div className={'user-profile__content-container'}>
