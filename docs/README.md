@@ -5,6 +5,16 @@ Type `yarn install` on the command line and let it install. If you do not have y
 
 You can download Yarn from [https://yarnpkg.com](https://yarnpkg.com).
 
+# Running the project
+
+- Run `yarn install` before doing anything.
+
+- Edit the `webpack.config.js`, if you need webpack-dev-server to proxy another URL, then uncomment the `devServer.proxy` config
+ value and set `target` to be the URL of the site you're working on. This is what webpack-dev-server will proxy to.
+If you're just using the `index.html` file that comes with this, then leave it as it is.
+
+- Connect to `http://localhost:3000` and marvel at the react hot module reloading and the css injection.
+
 # What is bloc?
 
 Bloc is a system designed by [Darwin Digital](http://darwindigital.co) which enables and facilitates rapid front-end
@@ -12,13 +22,6 @@ development. Bloc doesn't care what your back end is written with as it controls
 in to any project and will work.
 
 It includes the following tools to improve the developer experience.
-
-## Browsersync
-  - A tool that will stream any CSS changes straight to your browser without the need for a reload. We have set it up
-  to enable react components to be hot reloaded.
-  - You can access the website from another device on the network by navigating to the URL shown by browsersync when it
-  starts up. This is useful for testing on mobile devices and seeing your code changes in realtime.
-  [Visit the browsersync website](https://browsersync.io/) 
   
 ## Babel
   - Babel transpiles your [ECMAScript 6](http://es6-features.org/#Constants) code into ES5 code that can be executed by
@@ -38,14 +41,6 @@ It includes the following tools to improve the developer experience.
   - [ESLint](https://eslint.org/) is a JavaScript linter. It will flag up code that does not adhere to the agreed style
   guide. It will flag up issues with code that make it more difficult to read, or are questionable practices.
   
-## Gulp
-  - Gulp is a task runner. We are aware that using gulp in parallel with webpack is not best-practice but until a better
-  solution is presented for our use-cases, this is the best way we can present an easy development process and eliminate
-  repetitive tasks. As new solutions relating to webpack, Sass and globbing become available we will review the possibility
-  of removing gulp from bloc.
-  - in bloc, gulp is used to lint the project's Sass files before it compiles them into a single CSS file. It also runs
-  browsersync and facilitates the streaming of new CSS to the browser.
-  
 ## Immutable.js
   - Written by Facebook, [Immutable.js](https://facebook.github.io/immutable-js/docs/#/) offers a collection of
   immutable data types. We use this when writing complex react
@@ -58,11 +53,18 @@ It includes the following tools to improve the developer experience.
   as their commercial interests depend on react being the best tool for producing fast front ends with a low development
   overhead.
   
+## PostCSS
+  - [PostCSS](https://postcss.org/) PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.
+  We use it for its autoprefixing capabilities but there are plans to leverage more of its functionality in future releases of bloc.
+  
 ## Redux
-  - Redux is a library used for managing the state of an application. It works well with React through the `react-redux` 
+  - [Redux](https://redux.js.org/) is a library used for managing the state of an application. It works well with React through the `react-redux` 
   package and using it in tandem with Immutable.js produces an immutable state tree. By using redux to manage your
   application's state, you can time-travel back and forward through varying states of your app. This makes debugging and
   testing easier.
+  
+## Redux Saga
+  - [Redux saga](https://github.com/redux-saga/redux-saga) is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
   
 ## Webpack
   - Webpack and babel work together to produce a single bundle file that has the entire JavaScript code for your site
@@ -71,7 +73,6 @@ It includes the following tools to improve the developer experience.
   from a development perspective this is the best way we have found.
 
 # Usage
-
 ## Creating a component using static markup
 
 At the most basic level, each component should have its own file for: Markup, CSS and Javascript (if necessary).
@@ -323,12 +324,3 @@ if (elements.userProfile) {
 ```
 
 ![React component demonstration](react-userprofile.gif)
-
-# Running the project
-
-- Edit your gulpfile, set `appUrl` to be the URL of the site you're working on. This is what browsersync will proxy to.
-If you're just using the `index.html` file that comes with this, then leave it as it is.
-
-- On the command line type `yarn run gulp` (from the root of this project) or if you've got gulp installed globally just type `gulp`.
-
-- Connect to `http://localhost:3000` and marvel at the react hot module reloading and the css injection.
