@@ -4,6 +4,7 @@
   font-size: 1.4rem;
   background: $palette_b;
   color: $white;
+  appearance: none;
   border: 0;
 
   @include part(icon) {

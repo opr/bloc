@@ -154,7 +154,6 @@
 :root .fa-rotate-270,
 :root .fa-flip-horizontal,
 :root .fa-flip-vertical {
-  -webkit-filter: none;
   filter: none; }
 
 .fa-stack {
@@ -2434,14 +2433,11 @@ table {
   border-spacing: 0; }
 
 a {
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
   text-decoration: none;
   color: #560000; }
 
 video {
-  -o-object-fit: cover;
   object-fit: cover;
   font-family: 'object-fit: cover;'; }
 
@@ -2682,7 +2678,6 @@ h6 {
 .input {
   border: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px;
   height: 50px;
@@ -2693,7 +2688,6 @@ h6 {
 
 .user-profile {
   padding: 30px;
-  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   display: inline-block;
   margin-top: 30px;
@@ -2731,3 +2725,4 @@ h6 {
     background-size: cover;
     border-radius: 60px;
     margin-right: 20px; }
+
