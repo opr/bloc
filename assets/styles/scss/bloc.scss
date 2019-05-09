@@ -12,14 +12,14 @@
 | really considered to "style" the element.       |
 *************************************************/
 
-@import 'helpers/*';
+@import '_helpers/*';
 
 /*************************************************|
 | Gotta put the mixins now so we have cool        |
 | functions to use to save us time and money.     |
 *************************************************/
 
-@import 'mixins/*';
+@import '_mixins/*';
 
 /*************************************************|
 | We just reset everything so all styles below    |
@@ -28,14 +28,14 @@
 | styling!
 *************************************************/
 
-@import 'config/variables';
-@import 'config/reset';
-@import 'config/fonts';
-@import 'config/typography';
+@import '_config/variables';
+@import '_config/reset';
+@import '_config/fonts';
+@import '_config/typography';
 
 /*************************************************|
 | Now we can actually get on with making the site |
 | styles                                          |
 *************************************************/
 
-@import 'components/*';
+@import '_components/*';

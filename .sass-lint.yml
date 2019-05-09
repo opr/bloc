@@ -31,7 +31,7 @@ rules:
 files:
   include: './assets/styles/scss/**/*.scss'
   ignore:
-    - './assets/styles/scss/config/_reset.scss'
-    - './assets/styles/scss/config/_variables.scss'
-    - './assets/styles/scss/config/_font-size.scss'
-    - './assets/styles/scss/mixins/_rgba.scss'
+    - './assets/styles/scss/_config/_reset.scss'
+    - './assets/styles/scss/_config/_variables.scss'
+    - './assets/styles/scss/_config/_font-size.scss'
+    - './assets/styles/scss/_mixins/_rgba.scss'
