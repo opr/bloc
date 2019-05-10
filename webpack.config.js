@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const SassLintPlugin = require('sass-lint-webpack');
 const postcssPresetEnv = require('postcss-preset-env');
-
+const WatchExternalFilesPlugin = require('webpack-watch-files-plugin');
 
 module.exports = (env, argv) => {
   console.log(argv.mode);
@@ -34,17 +34,22 @@ module.exports = (env, argv) => {
     plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production'),
-        'process.env.SERVER_SIDE': JSON.stringify(true)
+        'process.env.NODE_ENV': JSON.stringify('production')
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'bloc.min.css',
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     ],
-    entry: [
-      './assets/js/src/serverSideReact/index.jsx',
-    ],
+    entry: {
+      bloc: ['./assets/js/src/react/index.jsx',
+        './assets/js/src/modules/index.js',
+        './assets/styles/scss/bloc.scss'],
+      'bloc.serverSide': ['./assets/js/src/serverSideReact/index.jsx']
+    },
     output: {
       path: path.join(__dirname, 'assets', 'dist'),
-      filename: 'bloc.serverSide.min.js',
+      filename: '[name].min.js',
       publicPath: '/assets/dist'
     },
     module: {
@@ -67,6 +72,33 @@ module.exports = (env, argv) => {
           test: /\.jsx?$/,
           exclude: /node_modules|.*vendor.*/,
           loader: 'eslint-loader'
+        },
+        {
+          test: /\.(sc|sa|c)ss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: argv.mode === 'development',
+              }
+            },
+            {loader: 'css-loader', options: {sourceMap: true, url: false}},
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: path.join(__dirname, 'postcss.config.js')
+                },
+                plugins: () => [postcssPresetEnv()]
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                importer: globImporter()
+              }
+            },
+          ],
         }
       ]
     }

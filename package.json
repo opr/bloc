@@ -29,7 +29,7 @@
     "instrument": false
   },
   "scripts": {
-    "run": "webpack-dev-server --watch",
+    "run": "webpack-dev-server --watch -- mode development",
     "run:serverSide": "webpack-dev-server --config webpack.serverSide.config.js --env.NODE_ENV=serverside --watch",
     "build": "webpack",
     "build:serverSide": "webpack --config webpack.serverSide.config.js --env.NODE_ENV=serverSide",
@@ -103,6 +103,7 @@
     "webpack-dev-middleware": "^3.6.2",
     "webpack-hot-middleware": "^2.24.0",
     "webpack-stream": "^5.2.1",
+    "webpack-watch-files-plugin": "^1.0.3",
     "write-file-webpack-plugin": "^4.5.0"
   },
   "devDependencies": {
