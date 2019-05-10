@@ -30,10 +30,8 @@
   },
   "scripts": {
     "run": "webpack-dev-server --watch -- mode development",
-    "run:serverSide": "webpack-dev-server --config webpack.serverSide.config.js --env.NODE_ENV=serverside --watch",
     "build": "webpack",
-    "build:serverSide": "webpack --config webpack.serverSide.config.js --env.NODE_ENV=serverSide",
-    "build-for-test": "webpack --mode=development",
+    "build:developmentMode": "webpack --mode=development",
     "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc --all mocha --recursive ./assets/js/test"
   },
   "repository": {
