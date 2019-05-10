@@ -29,7 +29,7 @@
     "instrument": false
   },
   "scripts": {
-    "run": "webpack-dev-server --watch -- mode development",
+    "run": "webpack-dev-server --watch --mode development",
     "build": "webpack",
     "build:developmentMode": "webpack --mode=development",
     "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc --all mocha --recursive ./assets/js/test"
