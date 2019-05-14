@@ -29,8 +29,9 @@
     "instrument": false
   },
   "scripts": {
-    "run": "webpack-dev-server --watch --mode development",
-    "build": "webpack",
+    "dev": "webpack-dev-server --watch --mode development",
+    "dev:serverSide": "webpack --config webpack.serverSide.config.js --watch",
+    "build": "webpack && webpack --config webpack.serverSide.config.js",
     "build:developmentMode": "webpack --mode=development",
     "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc --all mocha --recursive ./assets/js/test"
   },
