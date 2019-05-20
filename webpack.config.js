@@ -20,6 +20,7 @@ module.exports = (env, argv) => ({
     },
     host: '0.0.0.0'
   },
+  devtool: 'source-map',
   optimization: {
     minimize: argv.mode !== 'development',
     minimizer: argv.mode === 'development' ? [] : [new TerserPlugin({

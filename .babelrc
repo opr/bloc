@@ -6,7 +6,8 @@
         "@babel/preset-react"
       ],
       "plugins": [
-        "transform-object-rest-spread"
+        "transform-object-rest-spread",
+        "@babel/plugin-transform-regenerator"
       ]
     },
     "test": {
@@ -16,6 +17,7 @@
       ],
       "plugins": [
         "transform-object-rest-spread",
+        "@babel/plugin-transform-regenerator",
         "istanbul"
       ]
     },
@@ -26,6 +28,7 @@
       ],
       "plugins": [
         "react-hot-loader/babel",
+        "@babel/plugin-transform-regenerator",
         "transform-object-rest-spread"
       ]
     }
