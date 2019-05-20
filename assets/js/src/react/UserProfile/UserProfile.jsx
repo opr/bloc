@@ -22,7 +22,7 @@ export default class UserProfile extends React.Component {
             <button className={'user-profile__edit-button'} onClick={() => this.setState({editingName: !this.state.editingName})}>{this.state.editingName ? 'Save' : 'Edit'}</button>
           </div>
           <div className={'user-profile__job-title'}>Lead Developer</div>
-          <div className={'user-profile__description'}>I am an experienced lead developer at Darwin Digital. I like
+          <div className={'user-profile__description'}>I am an experienced lead developer at Darwin Digitalios. I like
             writing React
             and CSS. In my spare time I write even more React and play rugby.
           </div>

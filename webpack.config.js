@@ -8,18 +8,8 @@ const SassLintPlugin = require('sass-lint-webpack');
 const postcssPresetEnv = require('postcss-preset-env');
 
 
-module.exports = (env, argv) => ({
-  devServer: {
-    port: 3000,
-    hot: true,
-    inline: true,
-    //comment this out to not use with another back end like iis
-    proxy: {
-      path: '/',
-      target: 'http://127.0.0.1:56743'
-    },
-    host: '0.0.0.0'
-  },
+module.exports = (env, argv) => {return {
+  mode: argv.mode,
   devtool: 'source-map',
   optimization: {
     minimize: argv.mode !== 'development',
@@ -35,7 +25,8 @@ module.exports = (env, argv) => ({
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    //new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(argv.mode === 'development' ? 'development' : 'production'),
       'process.env.BABEL_ENV': JSON.stringify(argv.mode === 'development' ? 'development' : 'production')
@@ -43,19 +34,22 @@ module.exports = (env, argv) => ({
     new MiniCssExtractPlugin({
       filename: 'bloc.min.css',
     }),
-    new SassLintPlugin(),
+    argv.sass ? new SassLintPlugin() : () => {},
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   entry: {
-    bloc: [
+    bloc: argv.sass ? './assets/styles/scss/bloc.scss' : argv.hot ? [
+      'webpack-hot-middleware/client',
       './assets/js/src/react/index.jsx',
-      './assets/js/src/modules/index.js',
-      './assets/styles/scss/bloc.scss'
+      './assets/js/src/modules/index.js'
+    ] : [
+      './assets/js/src/react/index.jsx',
+      './assets/js/src/modules/index.js'
     ]
   },
   output: {
     path: path.join(__dirname, 'assets', 'dist'),
-    filename: '[name].min.js',
+    filename: argv.sass ? '[name].min.artefact.js' : '[name].min.js',
     publicPath: '/assets/dist'
   },
   resolve: {
@@ -82,7 +76,7 @@ module.exports = (env, argv) => ({
         exclude: /node_modules|.*vendor.*/,
         loader: 'eslint-loader'
       },
-      {
+      argv.sass ? {
         test: /\.(sc|sa|c)ss$/,
         use: [
           {
@@ -111,7 +105,7 @@ module.exports = (env, argv) => ({
             }
           },
         ],
-      }
+      } : {},
     ]
   }
-});
+}};
