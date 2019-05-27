@@ -1,4 +1,4 @@
-const appUrl = 'localhost:8088';
+const appUrl = 'localhost:33972';
 const {src, dest, parallel, watch, task} = require('gulp');
 const webpackStream = require('webpack-stream');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -9,12 +9,15 @@ const webpackConfigServer = require('./webpack.serverSide.config.js');
 const webpackConfigDev = webpackConfig(null, {mode: 'development', hot: true});
 const webpackConfigProd = webpackConfig(null, {mode: 'production'});
 const webpackConfigSass = webpackConfig(null, {mode: 'production', sass: true});
+const webpackConfigSassDebug = webpackConfig(null, {mode: 'development', sass: true});
 const webpackConfigSsr = webpackConfigServer(null, {mode: 'production'});
 const webpackStatic = require('webpack');
 const plumber = require('gulp-plumber');
 const webserver = require('gulp-webserver');
 const bundler = webpackStatic(webpackConfigDev);
+const {EventEmitter} = require('events');
 const env = require('gulp-env');
+const emitter = new EventEmitter();
 
 
 // Watch Files For Changes
@@ -23,14 +26,13 @@ const watchJs = () => watch('assets/js/src/**/*.+(js|ts|jsx)', webpack);
 const watchJsSsr = () => watch('assets/js/src/**/*.+(js|ts|jsx)', webpackSsr);
 const watchFiles = parallel(watchJs, watchSass, watchJsSsr);
 
-
 const webpack = () => {
   env({
     vars: {
       BABEL_ENV: 'production'
     }
   });
-  return webpackStream(webpackConfigDev).pipe(plumber({
+  return webpackStream(webpackConfigDev).on('error', e => {emitter.emit('finish'); console.log(e);}).pipe(plumber({
     errorHandler: errorAlert
   }))
     .pipe(dest('./assets/dist/'));
@@ -41,7 +43,7 @@ const webpackProd = () => {
       BABEL_ENV: 'production'
     }
   });
-  return webpackStream(webpackConfigProd).pipe(plumber({
+  return webpackStream(webpackConfigProd).on('error', e => {emitter.emit('finish'); console.log(e);}).pipe(plumber({
     errorHandler: errorAlert
   }))
     .pipe(dest('./assets/dist/'));
@@ -52,7 +54,18 @@ const webpackSass = () => {
       BABEL_ENV: 'production'
     }
   });
-  return webpackStream(webpackConfigSass).pipe(plumber({
+  return webpackStream(webpackConfigSass).on('error', e => {emitter.emit('finish'); console.log(e);}).pipe(plumber({
+    errorHandler: errorAlert
+  }))
+    .pipe(dest('./assets/dist/'));
+};
+const webpackSassDebug = () => {
+  env({
+    vars: {
+      BABEL_ENV: 'production'
+    }
+  });
+  return webpackStream(webpackConfigSassDebug).on('error', e => {emitter.emit('finish'); console.log(e);}).pipe(plumber({
     errorHandler: errorAlert
   }))
     .pipe(dest('./assets/dist/'));
@@ -63,7 +76,7 @@ const webpackSsr = () => {
       BABEL_ENV: 'production'
     }
   });
-  return webpackStream(webpackConfigSsr).pipe(plumber({
+  return webpackStream(webpackConfigSsr).on('error', e => {emitter.emit('finish'); console.log(e);}).pipe(plumber({
     errorHandler: errorAlert
   }))
     .pipe(dest('./assets/dist/'));
@@ -77,6 +90,7 @@ const browser_sync = () => {
     notify: false,
     ghostMode: false,
     files: ['./assets/dist/bloc.min.css'],
+    tunnel: true,
     proxy: {
       target: appUrl,
       middleware: [
@@ -104,6 +118,8 @@ exports.webpack = webpack;
 exports.webServer = webServer;
 exports.watch = watchFiles;
 exports.webpackSass = webpackSass;
+exports.webpackSassDebug = webpackSassDebug;
 exports.webpackSsr = webpackSsr;
 exports.webpackProd = webpackProd;
 exports.browserSync = browser_sync;
+exports.default = dev;
