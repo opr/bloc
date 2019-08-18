@@ -17,6 +17,12 @@
     color: $white;
     top: 0;
     right: 0;
+    padding-left: 20px;
+
+    &:before {
+      @include fas();
+      content: '\f13d';
+    }
   }
 
   @include part(name) {
