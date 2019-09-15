@@ -1,13 +1,13 @@
-@mixin far() {
+@mixin far {
   font-family: $fontawesome5;
   font-weight: 400;
 };
 
-@mixin fas() {
+@mixin fas {
   font-family: $fontawesome5;
   font-weight: 900;
 };
 
-@mixin fab() {
+@mixin fab {
   font-family: $fontawesome5brands;
 };
