@@ -21,7 +21,7 @@ const emitter = new EventEmitter();
 
 
 // Watch Files For Changes
-const watchSass = () => watch('assets/styles/scss/**/*.scss', webpackSass);
+const watchSass = () => watch('assets/scss/**/*.scss', webpackSass);
 const watchJs = () => watch('assets/js/src/**/*.+(js|ts|jsx)', webpack);
 const watchJsSsr = () => watch('assets/js/src/**/*.+(js|ts|jsx)', webpackSsr);
 const watchFiles = parallel(watchJs, watchSass, watchJsSsr);

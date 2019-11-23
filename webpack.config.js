@@ -38,7 +38,7 @@ module.exports = (env, argv) => {return {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   entry: {
-    bloc: argv.sass ? './assets/styles/scss/bloc.scss' : argv.hot ? [
+    bloc: argv.sass ? './assets/scss/bloc.scss' : argv.hot ? [
       'webpack-hot-middleware/client',
       './assets/js/src/react/index.jsx',
       './assets/js/src/modules/index.js'
@@ -58,7 +58,7 @@ module.exports = (env, argv) => {return {
   module: {
     rules: [
       {
-        test: /\.(jsx?)$/,
+        test: /\.([jt]sx?)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -67,12 +67,12 @@ module.exports = (env, argv) => {return {
           }
         },
         resolve: {
-          extensions: ['.js', '.jsx']
+          extensions: ['.js', '.jsx', '.ts', '.tsx']
         }
       },
       {
         enforce: 'pre',
-        test: /\.jsx?$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules|.*vendor.*/,
         loader: 'eslint-loader'
       },

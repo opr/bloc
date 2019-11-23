@@ -3,7 +3,8 @@
     "production": {
       "presets": [
         "@babel/preset-env",
-        "@babel/preset-react"
+        "@babel/preset-react",
+        "@babel/preset-typescript"
       ],
       "plugins": [
         "@babel/plugin-proposal-object-rest-spread",
@@ -14,7 +15,8 @@
     "test": {
       "presets": [
         "@babel/preset-env",
-        "@babel/preset-react"
+        "@babel/preset-react",
+        "@babel/preset-typescript"
       ],
       "plugins": [
         "@babel/plugin-proposal-object-rest-spread",
@@ -26,7 +28,8 @@
     "development": {
       "presets": [
         "@babel/preset-env",
-        "@babel/preset-react"
+        "@babel/preset-react",
+        "@babel/preset-typescript"
       ],
       "plugins": [
         "react-hot-loader/babel",
