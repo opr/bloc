@@ -1,4 +1,4 @@
-import addNumber from './addNumber';
+import {addNumber} from './addNumber';
 
 const pageFunctions = {
     common: {
@@ -23,7 +23,7 @@ const executePageFunctions = (finalize = false) => {
     else {
         pageFunctions.common.init();
     }
-    for (let bodyClass of body.classList) {
+    for (let bodyClass of Array.from(body.classList)) {
         bodyClass = bodyClass.replace(/-/g, '_');
         if (finalize) {
             if (typeof pageFunctions[bodyClass] !== 'undefined') {

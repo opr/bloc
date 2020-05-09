@@ -12,6 +12,7 @@ const getRenderFunc = app => {
 const render = (Component, element, name, hydrate = false) => {
   const renderOrHydrate = hydrate ? ReactDOM.hydrate : ReactDOM.render;
   renderOrHydrate(
+    //@ts-ignore
     <AppContainer name={name}>
       {Component}
     </AppContainer>,
@@ -36,5 +37,6 @@ if (elements.userProfile.length > 0) {
 
 for (const app of apps) {
   app.element ? getRenderFunc(app)() : null;
+  //@ts-ignore
   module.hot ? module.hot.accept(getRenderFunc(app)()) : null;
 }

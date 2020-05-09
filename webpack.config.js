@@ -40,11 +40,11 @@ module.exports = (env, argv) => {return {
   entry: {
     bloc: argv.sass ? './assets/scss/bloc.scss' : argv.hot ? [
       'webpack-hot-middleware/client',
-      './assets/js/src/react/index.jsx',
-      './assets/js/src/modules/index.js'
+      './assets/js/src/react/index.tsx',
+      './assets/js/src/modules/index.ts'
     ] : [
-      './assets/js/src/react/index.jsx',
-      './assets/js/src/modules/index.js'
+      './assets/js/src/react/index.tsx',
+      './assets/js/src/modules/index.ts'
     ]
   },
   output: {
