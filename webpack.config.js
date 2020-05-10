@@ -101,7 +101,10 @@ module.exports = (env, argv) => {return {
           {
             loader: 'sass-loader',
             options: {
-              importer: globImporter()
+              webpackImporter: false,
+              sassOptions: {
+                importer: globImporter()
+              }
             }
           },
         ],
