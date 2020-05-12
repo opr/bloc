@@ -1,11 +1,11 @@
 ﻿{
   "extends": "stylelint-config-sass-guidelines",
   "ignoreFiles": [
-    "./assets/scss/mixins/*",
-    "./assets/scss/config/*",
-    "assets/scss/helpers/*",
-    "assets/scss/bloc.scss",
-    "assets/scss/components/_react-dates.scss"
+    "./assets/scss/_mixins/*",
+    "./assets/scss/_config/*",
+    "./assets/scss/_helpers/*",
+    "./assets/scss/bloc.scss",
+    "./assets/scss/_components/_react-dates.scss"
   ],
   "rules": {
     "order/properties-alphabetical-order": null,
