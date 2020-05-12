@@ -32,6 +32,8 @@
     "dev": "webpack-dev-server --watch --mode development",
     "dev:serverSide": "webpack --config webpack.serverSide.config.js --watch",
     "build": "webpack && webpack --config webpack.serverSide.config.js",
+    "sass:lint": "stylelint \"./assets/scss/**\"",
+    "js:lint": "eslint \"assets/js/**\"",
     "build:developmentMode": "webpack --mode=development",
     "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc --all mocha --recursive ./assets/js/test"
   },
@@ -107,6 +109,9 @@
     "sass-lint-webpack": "^1.0.2",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "superagent": "^5.2.2",
     "terser-webpack-plugin": "^3.0.1",
     "typescript": "^3.8.3",

@@ -33,5 +33,6 @@
   "plugins": [
     "react",
     "@typescript-eslint"
-  ]
+  ],
+  "ignorePatterns": ["assets/js/test/**"]
 }
