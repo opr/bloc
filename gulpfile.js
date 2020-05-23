@@ -1,4 +1,4 @@
-const appUrl = 'localhost:8088';
+const appUrl = 'https://localhost:8088';
 const {src, dest, parallel, watch, task} = require('gulp');
 const webpackStream = require('webpack-stream');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -90,6 +90,10 @@ const browser_sync = () => {
     notify: false,
     ghostMode: false,
     files: ['./assets/dist/bloc.min.css'],
+    https: {
+      cert: './bloc.crt',
+      key: './bloc.key'
+    },
     proxy: {
       target: appUrl,
       middleware: [
